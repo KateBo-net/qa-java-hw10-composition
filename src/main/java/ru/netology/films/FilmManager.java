@@ -31,17 +31,17 @@ public class FilmManager {
     public FilmItem[] findLast() {
 
         FilmItem[] lastFilms;
+        int lengthResult;
 
         if (countLastFilms > films.length) {
-            lastFilms = new FilmItem[films.length];
-            for (int i = 0; i < films.length; i++) {
-                lastFilms[i] = films[films.length - 1 - i];
-            }
+            lengthResult = films.length;
         } else {
-            lastFilms = new FilmItem[countLastFilms];
-            for (int i = 0; i < countLastFilms; i++) {
-                lastFilms[i] = films[films.length - 1 - i];
-            }
+            lengthResult = countLastFilms;
+        }
+
+        lastFilms = new FilmItem[lengthResult];
+        for (int i = 0; i < lengthResult; i++) {
+            lastFilms[i] = films[films.length - 1 - i];
         }
         return lastFilms;
     }
