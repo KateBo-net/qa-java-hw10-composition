@@ -13,6 +13,7 @@ public class FilmItem {
         this.filmName = filmName;
         this.filmGenre = filmGenre;
         this.filmDate = filmDate;
+
     }
 
 }

@@ -14,6 +14,7 @@ public class FilmManagerTest {
 
     @Test
     public void shouldAddFilm() {
+
         manager.addFilm(film1);
         manager.addFilm(film2);
         manager.addFilm(film3);
@@ -26,6 +27,7 @@ public class FilmManagerTest {
 
     @Test
     public void shouldFindDefLastFilms() {
+
         manager.addFilm(film4);
         manager.addFilm(film1);
         manager.addFilm(film2);
