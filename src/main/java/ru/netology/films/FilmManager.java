@@ -2,7 +2,8 @@ package ru.netology.films;
 
 public class FilmManager {
 
-    int countLastFilms = 5;
+    private int countLastFilms = 5;
+    private FilmItem[] films = new FilmItem[0];
 
     public FilmManager() {
     }
@@ -10,8 +11,6 @@ public class FilmManager {
     public FilmManager(int countLastFilms) {
         this.countLastFilms = countLastFilms;
     }
-
-    private FilmItem[] films = new FilmItem[0];
 
     public void addFilm(FilmItem item) {
         FilmItem[] tmp = new FilmItem[films.length + 1];
@@ -25,17 +24,24 @@ public class FilmManager {
     }
 
     public FilmItem[] findAll() {
+
         return films;
     }
 
     public FilmItem[] findLast() {
 
+        FilmItem[] lastFilms;
+
         if (countLastFilms > films.length) {
-            countLastFilms = films.length;
-        }
-        FilmItem[] lastFilms = new FilmItem[countLastFilms];
-        for (int i = 0; i < countLastFilms; i++) {
-            lastFilms[i] = films[films.length - 1 - i];
+            lastFilms = new FilmItem[films.length];
+            for (int i = 0; i < films.length; i++) {
+                lastFilms[i] = films[films.length - 1 - i];
+            }
+        } else {
+            lastFilms = new FilmItem[countLastFilms];
+            for (int i = 0; i < countLastFilms; i++) {
+                lastFilms[i] = films[films.length - 1 - i];
+            }
         }
         return lastFilms;
     }
